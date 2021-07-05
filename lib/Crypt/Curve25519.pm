@@ -7,6 +7,7 @@ use Carp qw( croak );
 
 require Exporter;
 our @ISA = qw(Exporter);
+our $VERSION = '0.06';
 
 our %EXPORT_TAGS = ( 'all' => [ qw(
     curve25519
