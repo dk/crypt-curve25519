@@ -7,7 +7,7 @@ use Carp qw( croak );
 
 require Exporter;
 our @ISA = qw(Exporter);
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 our %EXPORT_TAGS = ( 'all' => [ qw(
     curve25519
@@ -80,6 +80,10 @@ sub generate {
 1;
 
 __END__
+
+=pod
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -168,20 +172,24 @@ public key, Curve25519 computes a 32-byte secret shared by the two users. This
 secret can then be used to authenticate and encrypt messages between the two
 users.
 
-=func curve25519_secret_key
+=head1 METHODS
+
+=over
+
+=item curve25519_secret_key
 
     my $my_secret_key = curve25519_secret_key($my_random_32byte_string);
 
 Using provided 32-byte random string from cryptographically safe source create
 masked secret key.
 
-=func curve25519_public_key
+=item curve25519_public_key
 
     my $public_key = curve25519_public_key($my_secret_key);
 
 Using masked secret key generate corresponding 32-byte Curve25519 public key.
 
-=func curve25519_shared_secret
+=item curve25519_shared_secret
 
     my $shared_secret = curve25519_shared_secret(
         $my_secret_key, $his_public_key
@@ -190,7 +198,7 @@ Using masked secret key generate corresponding 32-byte Curve25519 public key.
 Using provided keys generate 32-byte shared secret, that both parties can use
 without disclosing their private secret keys.
 
-=func curve25519
+=item curve25519
 
 Access to primitive function is also provided.
 
@@ -209,27 +217,27 @@ Access to primitive function is also provided.
 Using provided secret key and depending on the 32-byte basepoint generate
 32-byte public key or shared secret.
 
-=method new
+=item new
 
     my $c = Crypt::Curve25519->new();
 
 Create a new object
 
-=method secret_key
+=item secret_key
 
     my $my_secret_key_hex = $c->secret_key( $my_random_32byte_string_hex );
 
 Using hex encoded 32-byte random string from cryptographically safe source
 create masked secret key.
 
-=method public_key
+=item public_key
 
     my $public_key_hex = $c->public_key( $my_secret_key_hex );
 
 Using hex encoded masked secret key generate corresponding hex encoded 32-byte
 Curve25519 public key.
 
-=method shared_secret
+=item shared_secret
 
     my $shared_secret_hex = $c->shared_secret(
         $my_secret_key_hex, $his_public_key_hex
@@ -238,7 +246,7 @@ Curve25519 public key.
 Using provided hex encoded keys generate 32-byte hex encoded shared secret,
 that both parties can use without disclosing their private secret keys.
 
-=method generate
+=item generate
 
 Access to primitive method is also provided.
 
@@ -255,6 +263,8 @@ Access to primitive method is also provided.
 Using provided hex encoded secret key and depending on the 32-byte hex
 encoded basepoint generate 32-byte hex encoded public key or shared secret.
 
+=back
+
 =head1 SEE ALSO
 
 =over 4
@@ -262,6 +272,18 @@ encoded basepoint generate 32-byte hex encoded public key or shared secret.
 =item * L<http://cr.yp.to/ecdh.html>
 
 =back
+
+=head1 AUTHOR
+
+Alex J. G. Burzyński <ajgb@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+    This software is copyright (c) 2014 by Alex J. G. Burzyński
+    <ajgb@cpan.org>.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 
 =cut
 
