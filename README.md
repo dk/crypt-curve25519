@@ -189,7 +189,7 @@ generate 32-byte public key or shared secret.
 SEE ALSO
 --------
 
-http://cr.yp.to/ecdh.html
+[A state-of-the-art Diffie-Hellman function (by djb)](http://cr.yp.to/ecdh.html)
 
 AUTHOR
 ------
