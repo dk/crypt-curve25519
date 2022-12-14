@@ -1,7 +1,9 @@
-use ExtUtils::MakeMaker;
+use strict;
+use warnings;
 use Config;
+use ExtUtils::MakeMaker;
 
-my $x64 = $Config{ptrsize} == 8 ? 1 : 0;
+my $x64 = ($Config{ptrsize} == 8 && $Config{cc} =~ /gcc|clang/) ? 1 : 0;
 
 WriteMakefile(
     NAME              => 'Crypt::Curve25519',
