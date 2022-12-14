@@ -277,6 +277,10 @@ encoded basepoint generate 32-byte hex encoded public key or shared secret.
 
 Alex J. G. Burzyński <ajgb@cpan.org>
 
+=head1 MAINTAINER
+
+Dmitry Karasik <dmitry@karasik.eu.org>
+
 =head1 COPYRIGHT AND LICENSE
 
     This software is copyright (c) 2014 by Alex J. G. Burzyński
@@ -286,4 +290,3 @@ Alex J. G. Burzyński <ajgb@cpan.org>
     the same terms as the Perl 5 programming language system itself.
 
 =cut
-

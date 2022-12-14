@@ -175,6 +175,9 @@ SEE ALSO
 AUTHOR
     Alex J. G. Burzyński <ajgb@cpan.org>
 
+MAINTAINER
+    Dmitry Karasik <dmitry@karasik.eu.org>
+
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2014 by Alex J. G. Burzyński
     <ajgb@cpan.org>.
