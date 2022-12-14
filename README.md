@@ -1,11 +1,17 @@
 NAME
-    Crypt::Curve25519 - Generate shared secret using elliptic-curve
-    Diffie-Hellman function
+====
+
+Crypt::Curve25519 - Generate shared secret using elliptic-curve Diffie-Hellman
+function
 
 VERSION
-    version 0.07
+-------
+
+version 0.07
 
 SYNOPSIS
+--------
+
         use Crypt::Curve25519;
 
         # Alice:
@@ -36,7 +42,7 @@ SYNOPSIS
         die "Something horrible has happend!"
           unless $shared_secret_with_bob eq $shared_secret_with_alice;
 
-    This package provides also simplified OO interface:
+This package provides also simplified OO interface:
 
         use Crypt::Curve25519 ();
 
@@ -66,7 +72,7 @@ SYNOPSIS
         die "Something horrible has happend!"
           unless $shared_secret_with_bob_hex eq $shared_secret_with_alice_hex;
 
-    Example functions to generate pseudo-random private secret key:
+Example functions to generate pseudo-random private secret key:
 
         sub random_32_bytes {
             return join('', map { chr(int(rand(255))) } 1 .. 32);
@@ -77,44 +83,49 @@ SYNOPSIS
         }
 
 DESCRIPTION
-    Curve25519 is a state-of-the-art Diffie-Hellman function suitable for a
-    wide variety of applications.
+-----------
 
-    Given a user's 32-byte secret key, Curve25519 computes the user's
-    32-byte public key. Given the user's 32-byte secret key and another
-    user's 32-byte public key, Curve25519 computes a 32-byte secret shared
-    by the two users. This secret can then be used to authenticate and
-    encrypt messages between the two users.
+Curve25519 is a state-of-the-art Diffie-Hellman function suitable for a wide
+variety of applications.
+
+Given a user's 32-byte secret key, Curve25519 computes the user's 32-byte
+public key. Given the user's 32-byte secret key and another user's 32-byte
+public key, Curve25519 computes a 32-byte secret shared by the two users. This
+secret can then be used to authenticate and encrypt messages between the two
+users.
 
 METHODS
-  new
+-------
+
+### new
         my $c = Crypt::Curve25519->new();
 
-    Create a new object
+Create a new object
 
-  secret_key
+### secret\_key
         my $my_secret_key_hex = $c->secret_key( $my_random_32byte_string_hex );
 
-    Using hex encoded 32-byte random string from cryptographically safe
-    source create masked secret key.
+Using hex encoded 32-byte random string from cryptographically safe
+source create masked secret key.
 
-  public_key
+### public\_key
         my $public_key_hex = $c->public_key( $my_secret_key_hex );
 
-    Using hex encoded masked secret key generate corresponding hex encoded
-    32-byte Curve25519 public key.
+Using hex encoded masked secret key generate corresponding hex encoded
+32-byte Curve25519 public key.
 
-  shared_secret
+### shared\_secret
         my $shared_secret_hex = $c->shared_secret(
             $my_secret_key_hex, $his_public_key_hex
         );
 
-    Using provided hex encoded keys generate 32-byte hex encoded shared
-    secret, that both parties can use without disclosing their private
-    secret keys.
+Using provided hex encoded keys generate 32-byte hex encoded shared
+secret, that both parties can use without disclosing their private
+secret keys.
 
-  generate
-    Access to primitive method is also provided.
+### generate
+
+Access to primitive method is also provided.
 
         my $key_hex = $c->generate($my_secret_key_hex, $basepoint_hex);
 
@@ -126,33 +137,39 @@ METHODS
             print "\$key_hex is a shared secret\n";
         }
 
-    Using provided hex encoded secret key and depending on the 32-byte hex
-    encoded basepoint generate 32-byte hex encoded public key or shared
-    secret.
+Using provided hex encoded secret key and depending on the 32-byte hex
+encoded basepoint generate 32-byte hex encoded public key or shared
+secret.
 
 FUNCTIONS
-  curve25519_secret_key
+---------
+
+### curve25519\_secret\_key
+
         my $my_secret_key = curve25519_secret_key($my_random_32byte_string);
 
-    Using provided 32-byte random string from cryptographically safe source
-    create masked secret key.
+Using provided 32-byte random string from cryptographically safe source
+create masked secret key.
 
-  curve25519_public_key
+### curve25519\_public\_key
+
         my $public_key = curve25519_public_key($my_secret_key);
 
-    Using masked secret key generate corresponding 32-byte Curve25519 public
-    key.
+Using masked secret key generate corresponding 32-byte Curve25519 public
+key.
 
-  curve25519_shared_secret
+### curve25519\_shared\_secret
+
         my $shared_secret = curve25519_shared_secret(
             $my_secret_key, $his_public_key
         );
 
-    Using provided keys generate 32-byte shared secret, that both parties
-    can use without disclosing their private secret keys.
+Using provided keys generate 32-byte shared secret, that both parties
+can use without disclosing their private secret keys.
 
-  curve25519
-    Access to primitive function is also provided.
+### curve25519
+
+Access to primitive function is also provided.
 
         use Crypt::Curve25519 'curve25519';
 
@@ -166,22 +183,28 @@ FUNCTIONS
             print "\$key is a shared secret\n";
         }
 
-    Using provided secret key and depending on the 32-byte basepoint
-    generate 32-byte public key or shared secret.
+Using provided secret key and depending on the 32-byte basepoint
+generate 32-byte public key or shared secret.
 
 SEE ALSO
-    *   <http://cr.yp.to/ecdh.html>
+--------
+    http://cr.yp.to/ecdh.html
 
 AUTHOR
+------
+
     Alex J. G. Burzyński <ajgb@cpan.org>
 
 MAINTAINER
+----------
+
     Dmitry Karasik <dmitry@karasik.eu.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2014 by Alex J. G. Burzyński
-    <ajgb@cpan.org>.
+---------------------
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+This software is copyright (c) 2014 by Alex J. G. Burzyński <ajgb@cpan.org>.
+
+This is free software; you can redistribute it and/or modify it under the same
+terms as the Perl 5 programming language system itself.
 
