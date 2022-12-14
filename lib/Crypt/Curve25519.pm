@@ -81,6 +81,10 @@ sub generate {
 
 __END__
 
+=head1 NAME
+
+Crypt::Curve25519 - Generate shared secret using elliptic-curve Diffie-Hellman function
+
 =head1 SYNOPSIS
 
     use Crypt::Curve25519;
