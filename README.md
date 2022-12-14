@@ -188,17 +188,18 @@ generate 32-byte public key or shared secret.
 
 SEE ALSO
 --------
-    http://cr.yp.to/ecdh.html
+
+http://cr.yp.to/ecdh.html
 
 AUTHOR
 ------
 
-    Alex J. G. Burzyński <ajgb@cpan.org>
+Alex J. G. Burzyński <ajgb@cpan.org>
 
 MAINTAINER
 ----------
 
-    Dmitry Karasik <dmitry@karasik.eu.org>
+Dmitry Karasik <dmitry@karasik.eu.org>
 
 COPYRIGHT AND LICENSE
 ---------------------
